@@ -1,0 +1,877 @@
+/* Нормализация стилей */
+*, *::before, *::after
+{
+  box-sizing: border-box;
+}
+
+html
+{
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body
+{
+  min-height: 100%;
+  line-height: 1.5;
+}
+
+body,
+:where(blockquote, figure):where([class])
+{
+  margin: 0;
+}
+
+input, textarea, select, button
+{
+  font: inherit;
+}
+
+a, button, input, textarea, svg *
+{
+  transition-duration: var(--transition-duration);
+}
+
+img
+{
+  display: block;
+  max-width: 100%;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol),
+:where([class])
+{
+  margin-block: 0;
+}
+
+:where(ul[class])
+{
+  list-style: none;
+}
+
+:where(ul, ol):where([class])
+{
+  padding-left: 0;
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+  *
+  {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@font-face
+{
+  font-family: 'Archangelsk';
+  src: url('../fonts/ofont.ru_Archangelsk.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face
+{
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face
+{
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face
+{
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root
+{
+  --font-family-main: "Roboto", sans-serif;
+  --font-family-title: "Archangelsk", sans-serif;
+
+  --color-white: #FFFFFF;
+  --color-white-gray: #E6E6E6;
+  --color-gray: #888888;
+  --color-dark-gray: #777777;
+  --color-dark: #000000;
+  --color-yellow: #F8F200;
+
+  --color-font-roboto-bold: #52BEDC;
+
+  --transition-duration: 0.3s;
+
+  --container-width: 1280px;
+  --container-padding-x: 15px;
+
+  --clip-path-image: polygon(7% 0, 80% 0%, 100% 0, 100% 88%, 92% 100%, 0 100%, 0% 80%, 0 14%);
+  --clip-path-image-mobile: polygon(15% 0, 100% 0, 100% 30%, 100% 72%, 84% 100%, 30% 100%, 0 100%, 0 28%);
+
+}
+
+body
+{
+  font-family: var(--font-family-main);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2;
+
+  color: var(--color-white);
+  background-color: var(--color-white);
+}
+
+.container
+{
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.title
+{
+  font-family: var(--font-family-title);
+  font-size: clamp(30px, 6.05vw, 62px);
+  line-height: 1;
+
+  color: var(--color-dark);
+}
+
+.description
+{
+  font-size: clamp(16px, 1.75vw, 18px);
+  line-height: 2;
+  font-weight: 400;
+}
+
+.highlighted-word
+{
+  font-weight: 700;
+
+  color: var(--color-font-roboto-bold);
+}
+
+.button
+{
+  font-size: clamp(16px, 1.75vw, 18px);
+  font-weight: 700;
+  text-decoration: none;
+
+  padding-inline: 50px;
+  padding-block: 19px;
+  
+  color: var(--color-yellow);
+  background-color: var(--color-dark);
+}
+
+.input
+{
+  width: 310px;
+  border: 0;
+
+  margin-left: 10px;
+
+  color: var(--color-white);
+  background-color: var(--color-dark);
+}
+
+.input:focus-visible
+{
+  outline: none;
+}
+
+.header
+{
+  position: absolute;
+  width: 100%;
+  z-index: 200;
+  height: 74px;
+  padding-top: 20px;
+}
+
+.header-inner
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-soc1als
+{
+  display: flex;
+  column-gap: 40px;
+  align-items: center;
+}
+
+.banner
+{
+  height: 100vh;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  background: url("../images/Banner-mobile.jpg")
+  center/cover no-repeat;
+}
+
+.banner-container
+{
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+}
+
+.banner-action
+{
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+
+  padding-top: 70px;
+  padding-inline: 70px;
+
+  width: 624px;
+  height: 369px;
+
+  clip-path: var(--clip-path-image);
+  background-color: var(--color-yellow);
+}
+
+.banner-action__title
+{
+  margin-bottom: 45px;
+}
+
+.banner-action__button
+{
+  font-size: 24px;
+}
+
+.night-city
+{
+  padding-block: 70px;
+}
+
+.night-city__title-description
+{
+  max-width: 952px;
+
+  padding-top: 25px;
+  padding-bottom: 70px;
+
+  color: var(--color-gray);
+}
+
+.night-city__images
+{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 32px;
+  row-gap: 32px;
+}
+
+.night-city__image
+{
+  max-width: 100%;
+  height: auto;
+}
+
+.big
+{
+  grid-column: 2 / end;
+  grid-row: 1 / 3;
+}
+
+.transition-section
+{
+  height: 70px;
+  width: 100%;
+  background: url("../images/prize-draw/Transition.jpg") 
+  center/cover no-repeat;
+
+  margin-bottom: 15px;
+}
+
+.transition-section-yellow
+{
+  height: 70px;
+  width: 100%;
+  background: url("../images/prize-draw/Transition-yellow.jpg") 
+  center/cover no-repeat;
+
+  margin-top: 70px;
+}
+
+.prize-draw
+{
+  background-color: var(--color-dark);
+}
+
+.prize-draw-header
+{
+  column-gap: 32px;
+}
+
+.prize-draw__title
+{
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 39px;
+
+  color: var(--color-white);
+}
+
+.prize-draw__title::before
+{
+  content: '';
+  width: 132px;
+  aspect-ratio: 1;
+  margin-bottom: -15px;
+  margin-right: 32px;
+  background: url("../images/icons/Sale.svg")
+  center/contain no-repeat;
+}
+
+.prize-draw__description 
+{
+  max-width: 952px;
+  margin-bottom: 108px;
+}
+
+.prize-draw-body
+{
+  display: flex;
+  column-gap: 180px;
+}
+
+.prize-draw-form
+{
+  display: flex;
+  flex-direction: column;
+  row-gap: 35px;
+
+  max-width: 460px;
+}
+
+.prize-draw-form__label
+{
+  font-size: clamp(16px, 1.75vw, 18px);
+  font-weight: 300;
+}
+
+.input-line
+{
+  border-bottom: 1px var(--color-gray) solid;
+}
+
+.prize-draw-form__screenshot
+{
+  padding-inline: 137px;
+  padding-block: 39px;
+  cursor: pointer;
+  border: 2px var(--color-dark-gray) dashed;
+  border-radius: 4px;
+}
+
+.prize-draw-form__screenshot::-webkit-file-upload-button
+{
+  display: flex;
+  border: 0;
+  cursor: pointer;
+  justify-self: center;
+  align-self: center;
+  color: var(--color-white);
+  background-color: var(--color-dark);
+}
+
+.prize-draw-form_button
+{
+  max-width: 192px;
+  line-height: 1;
+
+  color: var(--color-dark);
+  background-color: var(--color-yellow);
+}
+
+.prize-draw-prizes
+{
+  display: flex;
+  align-items: center;
+  column-gap: 32px;
+}
+
+.xbox
+{
+  position: relative;
+  z-index: 100;
+
+  max-width: clamp(5.3rem, 15.41vw, 18.5rem);
+  height: clamp(5.3rem, 22.41vw, 30.5rem);
+}
+
+.xbox::after
+{
+  content: '';
+  position: absolute;
+  max-width: 28.75em;
+  max-height: 28.5em;
+  inset: 0;
+  left: -10em;
+  top: -2em;
+  z-index: -1;
+  background: url("../images/prize-draw/Xbox-background.png")
+  center/contain no-repeat;
+}
+
+.prize-draw-prizes__image-xbox
+{
+  max-width: clamp(5.3rem, 15.41vw, 18.5rem);
+  height: auto;
+}
+
+.playstation
+{
+  position: relative;
+  z-index: 10;
+
+  max-width: clamp(5.3rem, 15.41vw, 18.5rem);
+  height: clamp(4.3rem, 22.41vw, 30.5rem);
+}
+
+.playstation::after
+{
+  content: '';
+  position: absolute;
+  max-width: 28.75em;
+  max-height: 28.5em;
+  inset: 0;
+  left: -10em;
+  top: -2em;
+  z-index: -1;
+  background: url("../images/prize-draw/Playstation-background.png")
+  center/contain no-repeat;
+  transform: scaleX(-1);
+  rotate: 180deg;
+}
+
+.prize-draw-prizes__image-playstation
+{
+  max-width: clamp(5.3rem, 15.41vw, 18.5rem);
+  height: auto;
+}
+
+.ad
+{
+  background-color: var(--color-yellow);
+}
+
+.ad-inner
+{
+  display: flex;
+  column-gap: 32px;
+  padding-block: 70px;
+}
+
+.ad-product__image,
+.logos-item__image
+{
+  max-width: 100%;
+  height: auto;
+}
+
+.logos
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 25px;
+
+  margin-top: 25px;
+}
+
+.ad-title
+{
+  max-width: 560px;
+}
+
+.ad-title-description
+{
+  max-width: 624px;
+  margin-block: 25px;
+
+  color: var(--color-dark);
+}
+
+.ad-advantages
+{
+  margin-bottom: 45px;
+}
+
+.ad-advantages-item
+{
+  display: flex;
+  column-gap: 10px;
+}
+
+.advantages-points
+{
+  color: var(--color-dark);
+}
+
+.ad-advantages-button
+{
+  padding-inline: 50px;
+}
+
+.buy-game
+{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: var(--color-dark);
+
+  transition-duration: var(--transition-duration);
+}
+
+.disks__image
+{
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.game-platforms
+{
+  padding-left: 15px;
+  padding-top: 70px;
+}
+
+.game-platforms__title
+{
+  max-width: 624px;
+  margin-bottom: 25px;
+
+  color: var(--color-white);
+}
+
+.game-complect__list
+{
+  margin-bottom: 70px;
+}
+
+.game-complect__title-list
+{
+  font-size: 24px;
+  line-height: 1;
+}
+
+.game-complect__list-item
+{
+  display: flex;
+  column-gap: 10px;
+  margin-bottom: 15px;
+}
+
+.game-platform__title
+{
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.game-platform__list
+{
+  display: grid;
+  grid-template-columns: 70px 180px;
+  column-gap: 70px;
+  row-gap: 55px;
+}
+
+.upper-footer
+{
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--color-white);
+}
+
+.logo-footer
+{
+  display: flex;
+  column-gap: 32px;
+}
+
+.footer-links
+{
+  display: flex;
+  column-gap: 32px;
+}
+
+.footer-links__item
+{
+  font-size: 18px;
+  text-decoration: none;
+
+  color: var(--color-dark);
+}
+
+.footer-links__item:hover
+{
+  text-decoration: underline;
+}
+
+.lower-footer
+{
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: var(--color-dark);
+}
+
+.footer-marks
+{
+  font-size: 12px;
+}
+
+@media (max-width: 1335px)
+{
+  .logos
+  {
+    flex-direction: column;
+    row-gap: 25px;
+  }
+
+  .buy-game
+  {
+    grid-template-columns: 32% 68%;
+  }
+}
+
+@media (max-width: 1200px)
+{
+  .night-city__title
+  {
+    max-width: 620px;
+  }
+
+  .night-city__title-description
+  {
+    max-width: 788px;
+  }
+
+  .prize-draw__title
+  {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 460px;
+    row-gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .prize-draw__description
+  {
+    max-width: 460px;
+  }
+
+  .prize-draw-prizes
+  {
+    flex-direction: column;
+  }
+
+  .playstation::after
+  {
+    left: -8em;
+  }
+
+  .xbox::after
+  {
+    left: -8em;
+  }
+}
+
+@media (max-width: 1024px)
+{
+  .banner-action
+  {
+    bottom: -100px;
+    right: 0;
+    width: 100%;
+    height: clamp(207px, 36.9vw, 369px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding-top: clamp(30px, 6.83vw, 70px);
+    padding-inline: clamp(12px, 6.83vw, 70px);
+
+    transition-duration: var(--transition-duration);
+
+    clip-path: var(--clip-path-image-mobile);
+  }
+
+  .banner-action__title
+  {
+    margin-bottom: 25px;
+  }
+
+  .banner-action__button
+  {
+    font-size: clamp(20px, 2.34vw, 24px);
+    padding-block: 10px;
+  }
+
+  .night-city
+  {
+    padding-top: 170px;
+  }
+
+  .night-city__title-description
+  {
+    font-size: clamp(16px, 1.75vw, 18px);
+  }
+
+  .upper-footer
+  {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .logo-footer
+  {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 25px;
+  }
+
+  .footer-links
+  {
+    width: 103%;
+
+    align-items: center;
+    flex-direction: column;
+    padding-block: 25px;
+
+    background-color: var(--color-white-gray);
+  }
+
+  .footer-links__item
+  {
+    font-size: clamp(16px, 1.75vw, 18px);
+  }
+}
+
+@media (max-width: 850px)
+{
+  .prize-draw-body
+  {
+    flex-direction: column-reverse;
+  }
+
+  .prize-draw-form
+  {
+    max-width: 100%;
+  }
+
+  .prize-draw-prizes
+  {
+    flex-direction: row;
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 750px)
+{
+  .header-inner
+  {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  .banner-action__title
+  {
+    margin-bottom: 15px;
+  }
+
+  .night-city__images
+  {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+  }
+
+  .ad-inner
+  {
+    flex-direction: column;
+  }
+
+  .logos
+  {
+    flex-direction: row;
+    margin-bottom: 40px;
+  }
+
+  .buy-game
+  {
+    grid-template-columns: 100%;
+
+    transition-duration: var(--transition-duration);
+  }
+
+  .disks__image
+  {
+    height: 210px;
+  }
+
+  .game-platforms
+  {
+    padding-top: 40px;
+    margin-bottom: 70px;
+  }
+
+  .game-complect__list 
+  {
+    margin-bottom: 40px;
+  }
+
+  .game-complect__title-list
+  {
+    font-size: clamp(20px, 1.25vw, 24px);
+  }
+
+  .game-platform__list 
+  {
+    column-gap: 50px;
+    row-gap: 50px;
+  }
+}
+
+@media (max-width: 410px)
+{
+  .header-soc1als
+  {
+    column-gap: 30px;
+  }
+}
